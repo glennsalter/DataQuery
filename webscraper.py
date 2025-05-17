@@ -1,6 +1,7 @@
 import csv
 import pytz
 import time
+import yaml
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -8,8 +9,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-tz = pytz.timezone("Asia/Hong_Kong")
 output_dir = "output"
+
+# Load config
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
+tz = pytz.timezone(config["timezone"])
+url = config["url"]
 
 # Set up the Chrome driver (ensure chromedriver is in your PATH)
 service = Service()
