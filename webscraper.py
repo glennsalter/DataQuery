@@ -46,8 +46,6 @@ try:
         a_tag = div.find_element(By.TAG_NAME, "a")
         messages.append(a_tag.text)
 
-    # Get current time in Asia/Hong_Kong timezone
-
     timestamp = datetime.now(tz).strftime("%Y%m%d_%H%M%S")
     filename = f"{output_dir}/{timestamp}_announcements.csv"
 
@@ -59,7 +57,7 @@ try:
 
     elapsed = time.time() - start_time
     print(f"Number of titles: {len(messages)}")
-    print(f"Time taken: {elapsed:.2f} seconds")
+    print(f"Elapsed time: {elapsed:.2f} seconds")
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
