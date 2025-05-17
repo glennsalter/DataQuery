@@ -32,6 +32,9 @@ Number of titles: 5
 Elapsed time: 6.29 seconds
 ```
 
+Drawbacks:
+- This approach is rather slow because we have to open the browser every time and click through popups.
+
 ## Approach #2 - API
 Command:
 ```bash
