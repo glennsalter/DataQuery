@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+start_time = time.time()
 output_dir = "output"
 
 # Load config
@@ -43,7 +44,6 @@ try:
     messages = []
     for div in announcement_divs:
         a_tag = div.find_element(By.TAG_NAME, "a")
-        print(a_tag.text)
         messages.append(a_tag.text)
 
     # Get current time in Asia/Hong_Kong timezone
@@ -57,5 +57,10 @@ try:
         for message in messages:
             writer.writerow([message])
 
+    elapsed = time.time() - start_time
+    print(f"Number of titles: {len(messages)}")
+    print(f"Time taken: {elapsed:.2f} seconds")
+except Exception as e:
+    print(f"An error occurred: {e}")
 finally:
     driver.quit()
