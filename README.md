@@ -47,6 +47,7 @@ Explanation:
 
 Benefits:
 - This speeds up the process as we don't have to open the browser for every request
+- We only have to make a GET request with the existing cookies
 
 Runtime logs:
 ```
@@ -67,5 +68,8 @@ Starting process at 20250517_161346
 Number of titles: 5
 Parsed announcements to output/20250517_161346_announcements.csv
 Elapsed time: 0.42 seconds
-
 ```
+
+## Comparison
+- Approach 2 takes less than `1 second` to get the data, while approach 1 takes around `6 seconds`.
+- Using API calls to get the data is faster than web scraping.
